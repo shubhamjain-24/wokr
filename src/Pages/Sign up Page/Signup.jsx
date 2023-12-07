@@ -59,9 +59,10 @@ const Signup = () => {
       const { data } = await axios.post(
         "/api/user/register",
         {
-          name: nameOfUser,
+          UserName: nameOfUser,
           email,
           password,
+          loanApproval: false,
         },
         config
       );

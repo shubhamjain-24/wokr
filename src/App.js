@@ -8,7 +8,7 @@ import AboutUs from "./Pages/About-us Page/AboutUs";
 import Loan from "./Pages/Loan/Loan";
 import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
-import './app.css'
+import './App.css'
 import './style.css'
 import BacktoScroll from './Components/BacktoScroll'
 import Setloan from "./Pages/UserPage/Setloan";

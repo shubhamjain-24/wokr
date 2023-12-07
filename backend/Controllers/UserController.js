@@ -24,6 +24,7 @@ const Register = asyncHandler(async (req, res) => {
       UserName: user.UserName,
       email: user.email,
       password: user.password,
+      loanApproval:false
     });
   } else {
     res.status(400);
@@ -61,6 +62,20 @@ const AdminRegister = asyncHandler(async (req, res) => {
     throw new Error("Fail to create new user");
   }
 });
+
+const approvaButton=asyncHandler(async(req,res)=>{
+    const {email} = req.params;
+     const user = await User.findOne({ email });
+      if (user) {
+        res.json({
+          loanApproval: true,
+        });
+      } else {
+        res.status(401);
+        throw new Error("Invalid Email or Password");
+      }
+
+})
 
 const Login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -254,7 +269,7 @@ const UpdateWeekStatus = asyncHandler(async (req, res) => {
       return res.status(404).json({ success: false, error: "User not found" });
     }
 
-    if (weekNum >= 0 && weekNum < user.loans[0].week.length) {
+    if (weekNum >= 0 && weekNum <= user.loans[0].week.length) {
       // Update the Status to true for the specific week
     user.loans[0].week[weekNum].Status = true;
       // Save the updated user document
@@ -305,4 +320,5 @@ module.exports = {
   AllAdmin,
   AdminRegister,
   AdminLogin,
+  approvaButton,
 };

@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import './SetLoan.css';
-import { FaUserCircle } from 'react-icons/fa';
-import { GiReceiveMoney } from 'react-icons/gi';
-import { BsCalendarWeek } from 'react-icons/bs';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./SetLoan.css";
+import { FaUserCircle } from "react-icons/fa";
+import { GiReceiveMoney } from "react-icons/gi";
+import { BsCalendarWeek } from "react-icons/bs";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SetLoan = () => {
   // Retrieve user information from localStorage
-  const userInfos = JSON.parse(localStorage.getItem('userInfo')) || {};
-  
-  const [week, setWeek] = useState('');
-  const [amount, setAmount] = useState('');
+  const userInfos = JSON.parse(localStorage.getItem("userInfo")) || {};
+
+  const [week, setWeek] = useState("");
+  const [amount, setAmount] = useState("");
   const history = useNavigate();
 
   // Handle input change for loan duration
@@ -27,11 +27,13 @@ const SetLoan = () => {
   // Handle apply button click
   const handleApplyClick = () => {
     if (week < 1) {
-      alert('As per SNAP FUNDS regulations, the minimum loan duration is stipulated at one week.');
+      alert(
+        "As per SNAP FUNDS regulations, the minimum loan duration is stipulated at one week."
+      );
     } else if (amount < 500) {
-      alert('As per SNAP FUNDS regulations, the minimum loan amount is 500.');
+      alert("As per SNAP FUNDS regulations, the minimum loan amount is 500.");
     } else {
-      console.log('Apply logic triggered');
+      console.log("Apply logic triggered");
       // Place additional logic or API call here
     }
   };
@@ -43,15 +45,15 @@ const SetLoan = () => {
     try {
       const config = {
         headers: {
-          'Content-type': 'application/json',
+          "Content-type": "application/json",
         },
       };
 
       // Send loan application data to the server
       const { data } = await axios.post(
-        '/api/user/requesttobank',
+        "/api/user/requesttobank",
         {
-          email: 'a@gmail.com',
+          email: "a@gmail.com",
           CustomerName: userInfos.UserName,
           CustomerEmail: userInfos.email,
           CustomerAmount: amount,
@@ -61,11 +63,11 @@ const SetLoan = () => {
       );
 
       // Display success message and navigate to the next page
-      alert('Loan application submitted successfully!');
-      history('/userTable');
+      alert("Loan application submitted successfully!");
+      history("/userTable");
     } catch (error) {
       // Display error message for failed login
-      alert('Loan application failed');
+      alert("Loan application failed");
     }
   };
 
@@ -81,20 +83,25 @@ const SetLoan = () => {
             <h1 className="St_userName">{userInfos.UserName}</h1>
             <h5 className="St_userEmail">{userInfos.email}</h5>
           </div>
-          
+
           {/* Loan Application Section */}
           <div className="St_div2">
             <div className="St_textDiv">
               {/* Header Text */}
-              <div className="St_text1">Let's Step into <br />Financial Confidence</div>
-              <div className="St_text2">Your Journey to a Better Future Begins Here!</div>
+              <div className="St_text1">
+                Let's Step into <br />
+                Financial Confidence
+              </div>
+              <div className="St_text2">
+                Your Journey to a Better Future Begins Here!
+              </div>
             </div>
-            
+
             {/* Loan Input Form */}
             <div className="St_inputDiv">
               {/* Loan Amount Input */}
               <div className="Su_inputDiv">
-                <div className="Su_icon" style={{ fontSize: '25px' }}>
+                <div className="Su_icon" style={{ fontSize: "25px" }}>
                   <GiReceiveMoney />
                 </div>
                 <input
@@ -107,10 +114,10 @@ const SetLoan = () => {
                   value={amount}
                 />
               </div>
-              
+
               {/* Loan Duration Input */}
-              <div className="Su_inputDiv" style={{ marginTop: '20px' }}>
-                <div className="Su_icon" style={{ fontSize: '25px' }}>
+              <div className="Su_inputDiv" style={{ marginTop: "20px" }}>
+                <div className="Su_icon" style={{ fontSize: "25px" }}>
                   <BsCalendarWeek />
                 </div>
                 <input
@@ -123,7 +130,7 @@ const SetLoan = () => {
                   value={week}
                 />
               </div>
-              
+
               {/* Apply Now Button */}
               <button className="St_button" onClick={submitHandler}>
                 Apply Now

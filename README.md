@@ -106,7 +106,7 @@ If deploying to Heroku, this does not need to be run since it is handled by the 
 
 ## Learn More
 
-- [Create React App documentation](https://create-react-app.dev/docs/getting-started/)
+- You can learn more in the [Create React App documentation](https://create-react-app.dev/docs/getting-started/)
 - To learn how to set up a local MongoDB instance for testing, check out the guide on [Connecting to MongoDB](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database).
 - To learn how to deploy a full-stack web app to Heroku, follow this [comprehensive guide](https://dev.to/smithmanny/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncd).
 - Explore React further by referring to the [React documentation](https://reactjs.org/).
