@@ -45,7 +45,7 @@ const Login = () => {
 
       // Backend request to authenticate user
       const { data } = await axios.post(
-        "/api/user/login",
+        "https://loanbackend.vercel.app/api/user/login",
         { email, password },
         config
       );

@@ -13,7 +13,7 @@ const[approval,setApproval]=useState(false);
 
  const fetchData = async () => {
    try {
-     const response = await axios.get(`api/user/person/${userInfos.email}`);
+     const response = await axios.get(`https://loanbackend.vercel.app/api/user/person/${userInfos.email}`);
      console.log(response.data);
      setUserData(response.data);
    } catch (error) {
@@ -23,7 +23,7 @@ const[approval,setApproval]=useState(false);
 
  const fun=async()=>{
   try {
-    const res = await axios.get(`api/user/approvalButton/${userInfos.email}`);
+    const res = await axios.get(`https://loanbackend.vercel.app/api/user/approvalButton/${userInfos.email}`);
     console.log(res.data)
     localStorage.setItem("userInfo", JSON.stringify(res.data));
     setApproval(res.data);
@@ -54,7 +54,7 @@ const[approval,setApproval]=useState(false);
     console.log(week)
     try {
       const response = await axios.post(
-        `api/user/weeknum/${userInfos.email}/${weekNum}`
+        `https://loanbackend.vercel.app/api/user/weeknum/${userInfos.email}/${weekNum}`
       );
       console.log(response.data);
       // setUserData(response.data);
@@ -132,7 +132,7 @@ const[approval,setApproval]=useState(false);
         <div className="waiting">
 
           Hold on waiting for bank status
-          <button className="waiting_button" onClick={fun}>Refresh Data</button>
+          <button className="waiting_button" onClick={fun}>Check Status</button>
         </div>
         </>
       )}

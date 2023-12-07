@@ -51,7 +51,7 @@ const SetLoan = () => {
 
       // Send loan application data to the server
       const { data } = await axios.post(
-        "/api/user/requesttobank",
+        "https://loanbackend.vercel.app/api/user/requesttobank",
         {
           email: "a@gmail.com",
           CustomerName: userInfos.UserName,

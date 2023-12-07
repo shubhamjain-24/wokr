@@ -57,7 +57,7 @@ const Signup = () => {
       };
       // Make API call to register user
       const { data } = await axios.post(
-        "/api/user/register",
+        "https://loanbackend.vercel.app/api/user/register",
         {
           UserName: nameOfUser,
           email,

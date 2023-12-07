@@ -40,7 +40,7 @@ const AdminLogin = () => {
           },
         };
         const { data } = await axios.post(
-          "/api/user/AdminLogin",
+          "https://loanbackend.vercel.app/api/user/AdminLogin",
           { email, password },
           config
         );
