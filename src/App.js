@@ -34,7 +34,6 @@ const App = () => {
         <Route path="/userWait" element={<UserWaiting />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/adminPortal" element={<AdminPortal />} />
-
       </Routes>
       <Footer/>
       {/* <Navbar/> */}

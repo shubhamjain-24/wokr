@@ -129,8 +129,11 @@ const[approval,setApproval]=useState(false);
         </>
       ) : (
         <>
+        <div className="waiting">
+
           Hold on waiting for bank status
-          <button onClick={fun}>Refresh Data</button>
+          <button className="waiting_button" onClick={fun}>Refresh Data</button>
+        </div>
         </>
       )}
     </>

@@ -26,7 +26,7 @@ const AdminPortal = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('api/user/alladmin/a@gmail.com');
+        const response = await axios.get('https://loanbackend.vercel.app/api/user/alladmin/a@gmail.com');
         console.log(response.data);
         setUserData(response.data);
       } catch (error) {
@@ -40,9 +40,9 @@ const AdminPortal = () => {
   return (
     <>
       <div className="ap_nav">
-        <div className="ap_navLogo">
+        {/* <div className="ap_navLogo">
           <img src={img} alt="" className="ap_nav_logo" />
-        </div>
+        </div> */}
         <div className="ap_nav_text">Admin Portal</div>
         <div className="ap_iconDiv">
           <div className="ap_icon">
